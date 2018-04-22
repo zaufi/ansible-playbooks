@@ -1,0 +1,4 @@
+---
+- hosts: just-installed
+  roles:
+    - apply-after-install

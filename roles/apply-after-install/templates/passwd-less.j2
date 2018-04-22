@@ -1,0 +1,5 @@
+# Allow to `{{ansible_env.SUDO_USER}}` user to use password-less `sudo`
+{{ansible_env.SUDO_USER}}        ALL=(ALL)       NOPASSWD: ALL
+
+# When pretending as other user, do reset the home directory as well
+Defaults env_keep -= "HOME"

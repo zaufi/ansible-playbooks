@@ -1,0 +1,16 @@
+#
+# Use this script to prepare (like a `virtualenv`) environment to use `ansible`:
+#
+#   $ . bin/activate
+#   $ ansible-playbook ...
+#
+
+function _abs_path
+{
+    (cd "$(dirname $1)" &>/dev/null && printf "%s/%s" "$PWD" "${1##*/}")
+}
+
+export ANSIBLE_INVENTORY=$(_abs_path $(dirname ${BASH_SOURCE[0]})/../inventory/hosts)
+export ANSIBLE_CONFIG=$(_abs_path $(dirname ${BASH_SOURCE[0]})/../conf/ansible.cfg)
+
+# kate: hl bash;

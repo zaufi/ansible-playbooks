@@ -1,0 +1,26 @@
+---
+  - name: Add neovim PPA
+    when: ansible_os_family == "Debian"
+    apt_repository:
+      repo: ppa:neovim-ppa/stable
+
+  - name: Add git PPA repo
+    when: ansible_os_family == "Debian"
+    apt_repository:
+        repo: ppa:git-core/ppa
+
+  - name: Install must have packages
+    when: ansible_os_family == "Debian"
+    apt: pkg={{ item }} state=present update_cache=true autoremove=true
+    with_items:
+      - bash-completion
+      - git
+      - htop
+      - mc
+      - neovim
+      - tmux
+      - tree
+
+    - name: APT Cleanup
+      when: ansible_os_family == "Debian"
+      apt: autoremove=true
