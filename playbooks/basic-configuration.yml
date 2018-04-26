@@ -1,0 +1,5 @@
+---
+- hosts: just-installed
+  roles:
+    - basic-configuration
+    - wireguard

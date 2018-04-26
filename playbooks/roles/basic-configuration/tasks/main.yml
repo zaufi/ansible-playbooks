@@ -21,6 +21,6 @@
       - tmux
       - tree
 
-    - name: APT Cleanup
-      when: ansible_os_family == "Debian"
-      apt: autoremove=true
+  - name: APT Cleanup
+    when: ansible_os_family == "Debian"
+    apt: autoremove=true

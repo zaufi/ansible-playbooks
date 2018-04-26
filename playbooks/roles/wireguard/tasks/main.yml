@@ -1,0 +1,4 @@
+---
+
+# Set up the PPA and install packages
+- import_tasks: install.yml
